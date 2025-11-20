@@ -1,6 +1,6 @@
 ext.versions = [
-    "gradle"       : '8.2.0',
-    "kotlin"       : "1.9.20",
+    "gradle"       : '8.6.0',
+    "kotlin"       : "2.0.21",
     "poet"         : '1.15.3',
     "serialization": '1.6.2',
     "core_ktx"     : '1.12.0',
@@ -9,7 +9,7 @@ ext.versions = [
     "ktlint"       : "11.3.1",
     "retrofit"     : "2.9.0",
     "retromock"    : "1.1.1",
-    "hilt"         : "2.46",
+    "hilt"         : "2.55",
     "lifecycle"    : "2.6.0",
     "activity"     : "1.6.1",
     "fragment"     : "1.5.5",
