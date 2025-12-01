@@ -2,6 +2,7 @@ plugins {
     id "java-library"
     id "kotlin"
     id "kotlin-kapt"
+    id 'com.gradleup.shadow' version '8.3.5'
 }
 
 apply from: "$rootDir/detekt.gradle"
@@ -12,7 +13,7 @@ apply from: "$rootDir/maven-publish.gradle"
 ext.mavenPublishProperties = [
         group      : releaseConfig.group,
         version    : releaseConfig.version,
-        artifactId   : "processor",
+        artifactId : "processor",
         repository : [
                 url     : sonatype.url,
                 username: sonatype.username,
@@ -38,6 +39,17 @@ dependencies {
     compileOnly packages.kotlin.serialization_core
     compileOnly packages.retrofit.core
     compileOnly project(":retrofit")
+}
+
+tasks.shadowJar {
+    dependencies {
+        exclude(dependency(packages.kotlin.core))
+        exclude(dependency(packages.kotlin.serialization_core))
+        exclude(dependency(packages.retrofit.core))
+        exclude(project(":core"))
+        exclude(project(":retrofit"))
+        exclude(project(":annotations"))
+    }
 }
 
 compileKotlin {

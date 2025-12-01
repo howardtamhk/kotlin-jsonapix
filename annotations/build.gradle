@@ -1,6 +1,7 @@
 plugins {
     id "java-library"
     id "kotlin"
+    id 'com.gradleup.shadow' version '8.3.5'
 }
 
 apply from: "$rootDir/detekt.gradle"

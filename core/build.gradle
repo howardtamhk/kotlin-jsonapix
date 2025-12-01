@@ -2,6 +2,7 @@ plugins {
     id "java-library"
     id "kotlin"
     id "kotlinx-serialization"
+    id 'com.gradleup.shadow' version '8.3.5'
 }
 
 apply from: "$rootDir/detekt.gradle"
@@ -49,6 +50,9 @@ compileTestKotlin {
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.shadowJar {
 }
 
 tasks.named('dokkaJavadoc') {
